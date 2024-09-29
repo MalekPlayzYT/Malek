@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complex Student Dashboard</title>
+  <link rel="stylesheet" href="test.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Chart.js -->
+</head>
+<body>
+  <!-- Login Section -->
+  <section id="login-section" class="hidden">
+    <div class="login-container">
+      <h1>Login</h1>
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p id="login-error" class="error hidden">Invalid username or password.</p>
+    </div>
+  </section>
+
+  <!-- Main Dashboard Section (visible after login) -->
+  <section id="dashboard-section" class="hidden">
+    <header>
+      <div class="logo">
+        <h1>Student Dashboard</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="showSection('subjects')">Subjects</a></li>
+          <li><a href="#" onclick="showSection('grades')">Grades</a></li>
+          <li><button onclick="toggleTheme()">Switch Theme</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Subjects Overview -->
+      <div id="subjects-section">
+        <h1>My Subjects</h1>
+        <div class="subjects-container">
+          <div class="subject" id="math-subject">
+            <h2>Math <button class="toggle-btn" onclick="toggleDetails('math-details')">Expand/Collapse</button></h2>
+            <div class="details" id="math-details">
+              <div class="classwork">
+                <h3>Classwork</h3>
+                <ul>
+                  <li>Algebra Practice</li>
+                  <li>Geometry Test Prep</li>
+                </ul>
+              </div>
+              <div class="homework">
+                <h3>Homework</h3>
+                <ul>
+                  <li>Chapter 5 Problems</li>
+                  <li>Trigonometry Worksheet</li>
+                </ul>
+              </div>
+              <div class="grades">
+                <h3>Grades</h3>
+                <p>Classwork Grade: 88%</p>
+                <p>Homework Grade: 92%</p>
+                <p>Final Grade: 90%</p>
+              </div>
+              <!-- Grade Chart -->
+              <canvas id="mathChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Add more subjects here -->
+
+        </div>
+      </div>
+
+      <!-- Grade Overview -->
+      <div id="grades-section" class="hidden">
+        <h1>Grade Overview</h1>
+        <canvas id="gradeOverviewChart"></canvas>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Student Dashboard. All Rights Reserved.</p>
+    </footer>
+  </section>
+
+  <script src="test.js"></script>
+</body>
+</html>
+<canvas id="mathChart"></canvas>
+<canvas id="englishChart"></canvas>
